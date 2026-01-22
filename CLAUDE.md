@@ -23,15 +23,18 @@
 
 **Project Name:** Concrete-Landing
 **Repository:** seaninsd94/Concrete-Landing
-**Type:** [To be determined - Landing Page/Website/Application]
+**Type:** Landing Page / Marketing Website
 
 ### Purpose
-[This section should be updated with the project's main purpose and goals]
+A modern, responsive landing page for a concrete services company. The site showcases services, builds trust through testimonials, and provides an easy way for potential customers to get in touch.
 
 ### Key Features
-- [Feature 1]
-- [Feature 2]
-- [Feature 3]
+- Hero section with animated statistics and smooth navigation
+- Interactive features showcase with hover effects
+- Customer testimonials with ratings and social proof
+- Functional contact form with service selection
+- Fully responsive design for all devices
+- SEO optimized with proper metadata
 
 ---
 
@@ -39,61 +42,74 @@
 
 ```
 Concrete-Landing/
-├── src/                    # Source code
-│   ├── components/        # Reusable components
-│   ├── pages/            # Page components/routes
-│   ├── styles/           # Stylesheets and styling
-│   ├── utils/            # Utility functions
-│   ├── assets/           # Images, fonts, static assets
-│   └── lib/              # Third-party integrations
-├── public/               # Public assets
-├── tests/                # Test files
-├── docs/                 # Documentation
-├── .github/              # GitHub workflows and templates
-├── package.json          # Dependencies and scripts
-├── README.md             # Project documentation
-├── CLAUDE.md             # This file - AI assistant guide
-└── [config files]        # Various configuration files
+├── src/
+│   ├── app/                      # Next.js App Router
+│   │   ├── layout.tsx           # Root layout with metadata & fonts
+│   │   ├── page.tsx             # Main landing page (imports all components)
+│   │   └── globals.css          # Global styles & Tailwind directives
+│   └── components/               # React components
+│       ├── Hero.tsx             # Hero section with nav, CTA, stats
+│       ├── Features.tsx         # Features grid & services list
+│       ├── Testimonials.tsx     # Customer testimonials & trust badges
+│       ├── Contact.tsx          # Contact form & info
+│       └── Footer.tsx           # Footer with links & social media
+├── public/                       # Static assets (future: images, favicon)
+├── .gitignore                   # Git ignore rules
+├── package.json                 # Dependencies and scripts
+├── tsconfig.json                # TypeScript configuration
+├── tailwind.config.ts           # Tailwind CSS configuration
+├── postcss.config.js            # PostCSS configuration
+├── next.config.js               # Next.js configuration
+├── .eslintrc.json              # ESLint configuration
+├── README.md                    # Project documentation
+└── CLAUDE.md                    # This file - AI assistant guide
 ```
-
-**Note:** This structure is a template. Update it as the actual project structure emerges.
 
 ### Key Directories
 
-#### `/src`
-- **Purpose:** Contains all source code for the application
-- **Conventions:** [To be defined based on chosen framework]
+#### `/src/app`
+- **Purpose:** Next.js App Router directory containing routes and layouts
+- **Key Files:**
+  - `layout.tsx`: Root layout defining HTML structure, metadata, and fonts
+  - `page.tsx`: Home page that composes all landing page sections
+  - `globals.css`: Global styles including Tailwind directives
 
-#### `/components` (if applicable)
-- **Purpose:** Reusable UI components
-- **Naming Convention:** PascalCase for component names (e.g., `Button.tsx`, `Navigation.jsx`)
-- **Structure:** One component per file, co-located styles and tests
+#### `/src/components`
+- **Purpose:** Reusable React components for the landing page
+- **Naming Convention:** PascalCase (e.g., `Hero.tsx`, `Features.tsx`)
+- **Components:**
+  - `Hero.tsx`: Hero section with navigation, headline, CTA buttons, and stats
+  - `Features.tsx`: Services showcase with icons and feature cards
+  - `Testimonials.tsx`: Customer reviews with ratings and trust metrics
+  - `Contact.tsx`: Contact form with validation and business info
+  - `Footer.tsx`: Footer with navigation, social links, and legal info
+- **Patterns:** Each component is self-contained with 'use client' directive when needed
 
-#### `/pages` or `/routes` (if applicable)
-- **Purpose:** Top-level page components or route handlers
-- **Naming Convention:** Follows routing structure
+#### `/public`
+- **Purpose:** Static assets served directly (images, fonts, favicon)
+- **Access:** Files accessible at root URL path (e.g., `/public/logo.png` → `/logo.png`)
 
 ---
 
 ## Technology Stack
 
 ### Core Technologies
-- **Language:** [JavaScript/TypeScript/Other]
-- **Framework/Library:** [React/Vue/Next.js/Other]
-- **Build Tool:** [Vite/Webpack/Other]
-- **Package Manager:** [npm/yarn/pnpm]
+- **Language:** TypeScript 5.3
+- **Framework:** Next.js 14 (React 18) with App Router
+- **Styling:** Tailwind CSS 3.4
+- **Icons:** React Icons 5.0
+- **Package Manager:** npm (compatible with yarn/pnpm)
 
 ### Development Tools
-- **Linter:** [ESLint/Other]
-- **Formatter:** [Prettier/Other]
-- **Testing:** [Jest/Vitest/Cypress/Other]
-- **Type Checking:** [TypeScript/Flow/None]
+- **Linter:** ESLint (Next.js config)
+- **Type Checking:** TypeScript strict mode
+- **Testing:** None configured yet (recommended: Jest + React Testing Library)
 
 ### Deployment
-- **Platform:** [Vercel/Netlify/AWS/Other]
-- **CI/CD:** [GitHub Actions/Other]
-
-**Note:** Update this section once technologies are chosen.
+- **Recommended Platform:** Vercel (optimized for Next.js)
+- **Alternatives:** Netlify, AWS Amplify, Azure Static Web Apps
+- **Build Command:** `npm run build`
+- **Output:** `.next` directory (Node.js server + static assets)
 
 ---
 
@@ -124,12 +140,13 @@ npm run preview
 
 ### Environment Setup
 
-1. **Node.js Version:** [Specify required version, e.g., 18.x or higher]
-2. **Environment Variables:** Copy `.env.example` to `.env.local` and configure
+1. **Node.js Version:** 18.0 or higher (specified in package.json engines)
+2. **Environment Variables:** Create `.env.local` for local environment variables (not required for basic setup)
 3. **IDE Setup:** Recommended extensions for VS Code:
-   - ESLint
-   - Prettier
-   - [Framework-specific extensions]
+   - ESLint (dbaeumer.vscode-eslint)
+   - Tailwind CSS IntelliSense (bradlc.vscode-tailwindcss)
+   - TypeScript and JavaScript (built-in)
+   - ES7+ React/Redux/React-Native snippets
 
 ---
 
@@ -339,13 +356,28 @@ npm audit
 npm audit fix
 ```
 
-### Adding a New Page/Route
+### Adding a New Page/Route (Next.js App Router)
 
-1. Create page component in appropriate directory
-2. Add route configuration
-3. Update navigation if needed
-4. Add tests for new route
-5. Update documentation
+1. Create new directory in `src/app/` (e.g., `src/app/about/`)
+2. Add `page.tsx` in the new directory
+3. Optionally add `layout.tsx` for route-specific layout
+4. Update navigation in `Hero.tsx` or `Footer.tsx`
+5. Update sitemap and metadata as needed
+
+Example:
+```bash
+mkdir src/app/about
+# Create src/app/about/page.tsx with your content
+# Page will be accessible at /about
+```
+
+### Adding a New Component
+
+1. Create `.tsx` file in `src/components/` with PascalCase name
+2. Add 'use client' directive if component uses hooks or interactivity
+3. Export as default function
+4. Import and use in `src/app/page.tsx` or other components
+5. Follow existing patterns for styling (Tailwind classes)
 
 ---
 
@@ -435,19 +467,35 @@ Always check for:
 ## Project-Specific Notes
 
 ### Domain Concepts
-[Add project-specific terminology and concepts here]
+- **Landing Page Sections**: Hero, Features, Testimonials, Contact, Footer
+- **CTA (Call To Action)**: Buttons that drive user engagement ("Get Started", "Contact Us")
+- **Smooth Scrolling**: Navigation uses `scrollIntoView` for seamless section transitions
+- **Form Submission**: Currently simulated with timeout; needs backend integration
 
-### API Endpoints
-[Document key API endpoints if applicable]
+### Component Patterns
+- **'use client' Directive**: Used in components with interactivity (onClick, useState, forms)
+- **Responsive Design**: Mobile-first approach with Tailwind responsive classes (sm:, md:, lg:)
+- **Color System**: Primary colors defined in tailwind.config.ts (blue-based palette)
+- **Icons**: Imported from `react-icons/fa` (Font Awesome)
 
-### Third-Party Services
-[List integrated services: payment processors, analytics, etc.]
+### Integration Points (Future)
+- Contact form needs backend API endpoint for form submissions
+- Email service integration (SendGrid, Mailgun, or similar)
+- Analytics (Google Analytics, Plausible, etc.)
+- CMS integration if content needs to be editable (Sanity, Contentful)
 
 ### Performance Considerations
-[Document any performance-critical sections]
+- Next.js automatically optimizes images when using `next/image`
+- App Router provides automatic code splitting
+- Tailwind CSS purges unused styles in production
+- Consider lazy loading for below-the-fold content in future
 
-### Accessibility Requirements
-[Document WCAG compliance level and specific requirements]
+### Accessibility
+- Semantic HTML used throughout (section, nav, button, form)
+- aria-labels added for icon-only buttons
+- Keyboard navigation supported
+- Color contrast meets WCAG AA standards
+- Further improvements: Add focus indicators, ARIA landmarks, screen reader testing
 
 ---
 
@@ -480,7 +528,8 @@ This document should be updated:
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
-| 1.0.0 | 2026-01-22 | Initial creation | Claude AI |
+| 1.0.0 | 2026-01-22 | Initial creation with template structure | Claude AI |
+| 1.1.0 | 2026-01-22 | Updated with actual Next.js project details | Claude AI |
 
 ---
 
