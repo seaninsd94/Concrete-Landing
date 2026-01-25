@@ -57,15 +57,6 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
         <div className="space-y-8">
-          {/* Premium Badge */}
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/10 to-amber-600/10 border border-amber-500/30 backdrop-blur-sm">
-            <FaStar className="text-amber-400 w-4 h-4" />
-            <span className="text-amber-300 text-sm font-semibold tracking-wide">
-              Award-Winning Luxury Hardscape Specialists
-            </span>
-            <FaStar className="text-amber-400 w-4 h-4" />
-          </div>
-
           {/* Main Headline - Aspirational & Luxurious */}
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold tracking-tight leading-tight">
             <span className="block text-white">Transform Your Yard</span>
