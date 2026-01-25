@@ -1,6 +1,6 @@
 'use client'
 
-import { FaArrowRight } from 'react-icons/fa'
+import { FaArrowRight, FaStar } from 'react-icons/fa'
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -9,42 +9,44 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      {/* Luxury Background Overlay */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNHYtMkg2ek02IDRWMEG0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-100"></div>
+
+      {/* Elegant gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900"></div>
 
       {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-50">
+      <nav className="absolute top-0 left-0 right-0 z-50 bg-slate-900/30 backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-24">
             <div className="flex-shrink-0">
               <h1 className="text-2xl font-bold tracking-tight">
-                <span className="text-primary-400">Concrete</span>
+                <span className="bg-gradient-to-r from-amber-200 via-amber-300 to-amber-400 bg-clip-text text-transparent">
+                  Southwestern Concrete
+                </span>
               </h1>
+              <p className="text-xs text-gray-400 mt-1">Luxury Hardscape Design</p>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
                 <button
                   onClick={() => scrollToSection('features')}
-                  className="hover:text-primary-400 transition-colors duration-200"
+                  className="text-gray-300 hover:text-amber-300 transition-colors duration-200 font-medium"
                 >
-                  Features
+                  Our Work
                 </button>
                 <button
                   onClick={() => scrollToSection('testimonials')}
-                  className="hover:text-primary-400 transition-colors duration-200"
+                  className="text-gray-300 hover:text-amber-300 transition-colors duration-200 font-medium"
                 >
-                  Testimonials
+                  Reviews
                 </button>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="hover:text-primary-400 transition-colors duration-200"
+                  className="px-6 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold rounded-lg transition-all duration-200"
                 >
-                  Contact
+                  Get Consultation
                 </button>
               </div>
             </div>
@@ -53,71 +55,109 @@ export default function Hero() {
       </nav>
 
       {/* Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
         <div className="space-y-8">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 backdrop-blur-sm">
-            <span className="text-primary-400 text-sm font-medium">
-              Building Excellence Since 2024
+          {/* Premium Badge */}
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/10 to-amber-600/10 border border-amber-500/30 backdrop-blur-sm">
+            <FaStar className="text-amber-400 w-4 h-4" />
+            <span className="text-amber-300 text-sm font-semibold tracking-wide">
+              Award-Winning Luxury Hardscape Specialists
             </span>
+            <FaStar className="text-amber-400 w-4 h-4" />
           </div>
 
-          {/* Main Headline */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight">
-            <span className="block">Build Something</span>
-            <span className="block text-primary-400 mt-2">Amazing Today</span>
+          {/* Main Headline - Aspirational & Luxurious */}
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold tracking-tight leading-tight">
+            <span className="block text-white">Transform Your Yard</span>
+            <span className="block bg-gradient-to-r from-amber-200 via-amber-300 to-amber-400 bg-clip-text text-transparent mt-3">
+              Into an Outdoor Oasis
+            </span>
           </h1>
 
-          {/* Description */}
-          <p className="max-w-2xl mx-auto text-xl sm:text-2xl text-gray-300 leading-relaxed">
-            Premium concrete solutions for residential and commercial projects.
-            Quality craftsmanship, reliable service, and lasting results.
+          {/* Premium Description */}
+          <p className="max-w-3xl mx-auto text-xl sm:text-2xl text-gray-300 leading-relaxed font-light">
+            Elevate your property with custom-designed stamped concrete patios,
+            elegant pool decks, and stunning driveways that rival natural stone—
+            at a fraction of the cost. Where luxury meets lasting value.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-400 pt-2">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span>5.0 Rating on Google</span>
+            </div>
+            <span className="text-gray-600">•</span>
+            <span>Fully Licensed & Insured</span>
+            <span className="text-gray-600">•</span>
+            <span>15+ Years Serving Upscale Communities</span>
+          </div>
+
+          {/* Premium CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-6">
             <button
               onClick={() => scrollToSection('contact')}
-              className="group px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2"
+              className="group px-10 py-5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white text-lg font-bold rounded-xl shadow-2xl hover:shadow-amber-500/50 transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-3"
             >
-              Get Started
-              <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
+              Schedule Free Consultation
+              <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
             </button>
             <button
               onClick={() => scrollToSection('features')}
-              className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-200"
+              className="px-10 py-5 bg-white/5 hover:bg-white/10 text-white text-lg font-semibold rounded-xl backdrop-blur-sm border-2 border-white/20 hover:border-amber-400/50 transition-all duration-300"
             >
-              Learn More
+              View Our Portfolio
             </button>
           </div>
 
-          {/* Stats */}
-          <div className="pt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="space-y-2">
-              <div className="text-4xl font-bold text-primary-400">500+</div>
-              <div className="text-gray-400">Projects Completed</div>
+          {/* Luxury Stats - Focused on High-End Residential */}
+          <div className="pt-20 grid grid-cols-1 sm:grid-cols-3 gap-12 max-w-4xl mx-auto">
+            <div className="space-y-3 group cursor-default">
+              <div className="text-5xl font-bold bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                200+
+              </div>
+              <div className="text-gray-400 text-lg">Luxury Estate Projects</div>
+              <div className="h-1 w-16 bg-gradient-to-r from-amber-500 to-transparent mx-auto rounded-full"></div>
             </div>
-            <div className="space-y-2">
-              <div className="text-4xl font-bold text-primary-400">10+</div>
-              <div className="text-gray-400">Years Experience</div>
+            <div className="space-y-3 group cursor-default">
+              <div className="text-5xl font-bold bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                $2M+
+              </div>
+              <div className="text-gray-400 text-lg">Average Home Value</div>
+              <div className="h-1 w-16 bg-gradient-to-r from-amber-500 to-transparent mx-auto rounded-full"></div>
             </div>
-            <div className="space-y-2">
-              <div className="text-4xl font-bold text-primary-400">100%</div>
-              <div className="text-gray-400">Client Satisfaction</div>
+            <div className="space-y-3 group cursor-default">
+              <div className="text-5xl font-bold bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                30%
+              </div>
+              <div className="text-gray-400 text-lg">Avg. Property Value Increase</div>
+              <div className="h-1 w-16 bg-gradient-to-r from-amber-500 to-transparent mx-auto rounded-full"></div>
             </div>
+          </div>
+
+          {/* Social Proof Snippet */}
+          <div className="pt-8">
+            <p className="text-gray-400 text-sm italic">
+              "Transformed our backyard into a resort-style paradise. Worth every penny!"
+            </p>
+            <p className="text-amber-400 text-sm font-semibold mt-1">
+              — Jennifer M., Paradise Valley Estates
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* Elegant Scroll Indicator */}
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
         <button
           onClick={() => scrollToSection('features')}
-          className="text-white/60 hover:text-white transition-colors"
-          aria-label="Scroll to features"
+          className="text-amber-400/60 hover:text-amber-400 transition-colors"
+          aria-label="Scroll to portfolio"
         >
           <svg
-            className="w-6 h-6"
+            className="w-8 h-8"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
