@@ -13,45 +13,45 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: 'Sarah Johnson',
+    name: 'Jennifer & Michael Patterson',
+    role: 'Homeowners',
+    company: 'Paradise Valley Estates',
+    content: 'Our backyard went from boring to breathtaking! The stamped concrete patio and pool deck look like real travertine. We\'ve hosted three dinner parties already and our guests can\'t believe it\'s concrete. Best investment we\'ve made in our home.',
+    rating: 5,
+  },
+  {
+    name: 'David Chen',
+    role: 'Luxury Home Builder',
+    company: 'Silverleaf',
+    content: 'I exclusively use Southwestern Concrete for all my custom estate homes. Their attention to detail and ability to execute complex designs is unmatched. My clients are always thrilled with the results.',
+    rating: 5,
+  },
+  {
+    name: 'Amanda Rodriguez',
     role: 'Homeowner',
-    company: 'Residential Client',
-    content: 'Outstanding work on our driveway! The team was professional, punctual, and the quality exceeded our expectations. The concrete looks amazing and has transformed our home\'s curb appeal.',
+    company: 'DC Ranch',
+    content: 'We compared three contractors and Southwestern wasn\'t the cheapest, but their portfolio spoke for itself. The stamped concrete driveway and walkways added instant curb appeal. Our home appraised $85k higher than expected!',
     rating: 5,
   },
   {
-    name: 'Michael Chen',
-    role: 'Property Manager',
-    company: 'Riverside Apartments',
-    content: 'We\'ve worked with many contractors over the years, but this team stands out. They completed our commercial foundation project ahead of schedule and under budget. Highly recommend!',
+    name: 'James & Karen Foster',
+    role: 'Homeowners',
+    company: 'Grayhawk',
+    content: 'Turned our plain backyard into a resort-style oasis! The multi-level patio with integrated fire pit and seating walls is perfect for Arizona entertaining. Professional, clean, and finished exactly on schedule.',
     rating: 5,
   },
   {
-    name: 'Emily Rodriguez',
-    role: 'Interior Designer',
-    company: 'Modern Spaces Design',
-    content: 'The decorative concrete work they did for our client was absolutely stunning. Their attention to detail and craftsmanship is unmatched. We\'ll definitely use them for future projects.',
+    name: 'Robert Morrison',
+    role: 'Estate Owner',
+    company: 'Troon North',
+    content: 'After living here 15 years, we finally redid our outdoor spaces. The custom ashlar pattern perfectly complements our Mediterranean architecture. It looks like imported Italian stone but at a fraction of the cost.',
     rating: 5,
   },
   {
-    name: 'David Thompson',
-    role: 'Business Owner',
-    company: 'Thompson Retail Group',
-    content: 'Professional from start to finish. They handled our commercial parking lot project with expertise and efficiency. The communication was excellent throughout the entire process.',
-    rating: 5,
-  },
-  {
-    name: 'Jessica Martinez',
+    name: 'Lisa Thompson',
     role: 'Homeowner',
-    company: 'Residential Client',
-    content: 'We couldn\'t be happier with our new patio and walkway. The stamped concrete design is beautiful, and the entire process was smooth and stress-free. Worth every penny!',
-    rating: 5,
-  },
-  {
-    name: 'Robert Williams',
-    role: 'General Contractor',
-    company: 'Williams Construction',
-    content: 'As a GC, I\'ve partnered with this concrete team on multiple projects. Their reliability and quality work make them my go-to choice. They consistently deliver exceptional results.',
+    company: 'Scottsdale Ranch',
+    content: 'From design consultation to final sealing, the entire experience was first-class. They protected our landscaping, respected our privacy, and the pool deck is absolutely stunning. Worth every penny!',
     rating: 5,
   },
 ]
@@ -71,19 +71,19 @@ function StarRating({ rating }: { rating: number }) {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-24 bg-gradient-to-b from-amber-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">
-            Testimonials
+        <div className="text-center mb-20">
+          <h2 className="text-base text-amber-600 font-bold tracking-wide uppercase">
+            Client Reviews
           </h2>
-          <p className="mt-2 text-4xl font-extrabold text-gray-900 sm:text-5xl">
-            What Our Clients Say
+          <p className="mt-3 text-4xl font-extrabold text-gray-900 sm:text-5xl">
+            Luxury Homeowners Love Us
           </p>
-          <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-            Don't just take our word for it. Here's what our satisfied customers
-            have to say about working with us.
+          <p className="mt-5 max-w-3xl text-xl text-gray-600 mx-auto leading-relaxed">
+            Join hundreds of satisfied homeowners in Arizona's most prestigious
+            communities who transformed their outdoor spaces into luxury retreats.
           </p>
         </div>
 
@@ -92,29 +92,33 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-amber-100 hover:border-amber-300 flex flex-col hover:-translate-y-1"
             >
               {/* Quote Icon */}
               <div className="mb-4">
-                <FaQuoteLeft className="text-3xl text-primary-500 opacity-50" />
+                <FaQuoteLeft className="text-3xl text-amber-500 opacity-40" />
               </div>
 
               {/* Rating */}
               <div className="mb-4">
-                <StarRating rating={testimonial.rating} />
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <FaStar key={i} className="text-amber-400 w-5 h-5" />
+                  ))}
+                </div>
               </div>
 
               {/* Content */}
-              <p className="text-gray-700 leading-relaxed mb-6 flex-grow">
+              <p className="text-gray-700 leading-relaxed mb-6 flex-grow text-base">
                 "{testimonial.content}"
               </p>
 
               {/* Author Info */}
-              <div className="border-t border-gray-200 pt-6">
+              <div className="border-t border-amber-100 pt-6">
                 <div className="flex items-center gap-4">
                   {/* Avatar */}
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold text-lg">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
                       {testimonial.name.charAt(0)}
                     </div>
                   </div>
@@ -127,7 +131,7 @@ export default function Testimonials() {
                     <div className="text-sm text-gray-600">
                       {testimonial.role}
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-amber-600 font-semibold">
                       {testimonial.company}
                     </div>
                   </div>
@@ -138,41 +142,50 @@ export default function Testimonials() {
         </div>
 
         {/* Trust Badges */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-primary-600 mb-2">500+</div>
-            <div className="text-gray-600">Happy Clients</div>
+        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="text-center group">
+            <div className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
+              15+
+            </div>
+            <div className="text-gray-600 font-medium">Years Serving<br />Luxury Estates</div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-primary-600 mb-2">10+</div>
-            <div className="text-gray-600">Years Experience</div>
+          <div className="text-center group">
+            <div className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
+              5.0
+            </div>
+            <div className="text-gray-600 font-medium">Average Google<br />Rating</div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-primary-600 mb-2">98%</div>
-            <div className="text-gray-600">Success Rate</div>
+          <div className="text-center group">
+            <div className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
+              95%
+            </div>
+            <div className="text-gray-600 font-medium">Referral &<br />Repeat Clients</div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-primary-600 mb-2">24/7</div>
-            <div className="text-gray-600">Support Available</div>
+          <div className="text-center group">
+            <div className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
+              $50K
+            </div>
+            <div className="text-gray-600 font-medium">Average Project<br />Investment</div>
           </div>
         </div>
 
         {/* CTA Banner */}
-        <div className="mt-16 bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-12 text-center text-white shadow-xl">
-          <h3 className="text-3xl font-bold mb-4">
-            Ready to Join Our Satisfied Clients?
+        <div className="mt-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl border border-amber-500/20">
+          <h3 className="text-4xl font-bold mb-4">
+            Ready to Transform Your Outdoor Space?
           </h3>
-          <p className="text-xl mb-8 text-primary-100">
-            Get your free consultation and quote today
+          <p className="text-xl mb-10 text-gray-300 max-w-2xl mx-auto">
+            Schedule your complimentary design consultation and discover how stamped concrete
+            can elevate your property's value and beauty.
           </p>
           <button
             onClick={() => {
               const element = document.getElementById('contact')
               element?.scrollIntoView({ behavior: 'smooth' })
             }}
-            className="px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+            className="px-12 py-5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white text-lg font-bold rounded-xl shadow-2xl hover:shadow-amber-500/50 transform hover:-translate-y-1 transition-all duration-300"
           >
-            Get Started Now
+            Schedule Free Consultation
           </button>
         </div>
       </div>
